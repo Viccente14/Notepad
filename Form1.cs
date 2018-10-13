@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace notepad
             }
             else
             {
-                saveTXT.FileName = "Any File";
+                saveTXT.FileName = "untitled";
                 saveTXT.DefaultExt = ".txt";
                 saveTXT.Filter = "Text File (*.txt)|*.txt|Any File (*.*)|*.*";
 
@@ -86,10 +87,6 @@ namespace notepad
             
         }
 
-        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fontDialog1.Font = textBox1.Font;
@@ -97,11 +94,6 @@ namespace notepad
             {
                 textBox1.Font = fontDialog1.Font;
             }
-        }
-
-        private void eToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -160,9 +152,80 @@ namespace notepad
             about.Show();
         }
 
-        private void aaa1_Load(object sender, EventArgs e)
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                MessageBox.Show("Input a Text.");
+            }
+            else
+            {
+                saveTXT.FileName = "untitled";
+                saveTXT.DefaultExt = "";
+                saveTXT.Filter = "Any File (*.*)|*.*";
 
+                DialogResult result = saveTXT.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    FileStream fs = new FileStream(saveTXT.FileName, FileMode.Create);
+
+                    StreamWriter writer = new StreamWriter(fs);
+                    writer.Write(textBox1.Text);
+                    writer.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Operation was Canceled");
+                }
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printDocument1.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
+            {
+                e1.Graphics.DrawString(textBox1.Text, textBox1.Font, new SolidBrush(textBox1.ForeColor), new RectangleF(0, 0, printDocument1.DefaultPageSettings.PrintableArea.Width, printDocument1.DefaultPageSettings.PrintableArea.Height));
+            };
+            try
+            {
+                printDocument1.Print();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Exception occured while printing. ", ex);
+            }
+        }
+
+        private void printSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printDialog1.Document = printDocument1;
+            printDialog1.ShowDialog();
+        }
+
+        private void localizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This option is not yet available.", "Notepad", MessageBoxButtons.OK);
+        }
+
+        private void localizeNextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            localizeNextToolStripMenuItem_Click(sender, e);
+        }
+
+        private void substituteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            localizeNextToolStripMenuItem_Click(sender, e);
+        }
+
+        private void goToToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            localizeNextToolStripMenuItem_Click(sender, e);
         }
     }
 }
