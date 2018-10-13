@@ -28,6 +28,7 @@ namespace notepad
             {
                 saveTXT.FileName = "Any File";
                 saveTXT.DefaultExt = ".txt";
+                saveTXT.Filter = "Text File (*.txt)|*.txt|Any File (*.*)|*.*";
 
                 DialogResult result = saveTXT.ShowDialog();
 
@@ -60,7 +61,7 @@ namespace notepad
                 else
                 {
                     openFile.DefaultExt = ".txt";
-                    openFile.Filter = "Any File";
+                    openFile.Filter = "Any File (*.*)|*.*";
                     DialogResult resultb = openFile.ShowDialog();
                     if (resultb == DialogResult.OK)
                     {
@@ -73,7 +74,7 @@ namespace notepad
             else
             {
                 openFile.DefaultExt = ".txt";
-                openFile.Filter = "Any File";
+                openFile.Filter = "Text File (*.txt)|*.txt|Any File (*.*)|*.*";
                 DialogResult resultb = openFile.ShowDialog();
                 if (resultb == DialogResult.OK)
                 {
