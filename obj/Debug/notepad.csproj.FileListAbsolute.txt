@@ -1,0 +1,10 @@
+c:\users\vicen\onedrive\documentos\visual studio 2015\Projects\notepad\notepad\bin\Debug\notepad.exe.config
+c:\users\vicen\onedrive\documentos\visual studio 2015\Projects\notepad\notepad\bin\Debug\notepad.exe
+c:\users\vicen\onedrive\documentos\visual studio 2015\Projects\notepad\notepad\bin\Debug\notepad.pdb
+c:\users\vicen\onedrive\documentos\visual studio 2015\Projects\notepad\notepad\obj\Debug\notepad.csprojResolveAssemblyReference.cache
+c:\users\vicen\onedrive\documentos\visual studio 2015\Projects\notepad\notepad\obj\Debug\notepad.Form1.resources
+c:\users\vicen\onedrive\documentos\visual studio 2015\Projects\notepad\notepad\obj\Debug\notepad.Properties.Resources.resources
+c:\users\vicen\onedrive\documentos\visual studio 2015\Projects\notepad\notepad\obj\Debug\notepad.csproj.GenerateResource.Cache
+c:\users\vicen\onedrive\documentos\visual studio 2015\Projects\notepad\notepad\obj\Debug\notepad.exe
+c:\users\vicen\onedrive\documentos\visual studio 2015\Projects\notepad\notepad\obj\Debug\notepad.pdb
+c:\users\vicen\onedrive\documentos\visual studio 2015\Projects\notepad\notepad\obj\Debug\notepad.AboutBox1.resources
